@@ -1,0 +1,17 @@
+{
+  "name": "restau",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Rexford <seanmavley@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

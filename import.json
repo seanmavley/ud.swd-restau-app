@@ -1,0 +1,87 @@
+[
+  {
+    "reviews": [
+      3,
+      {
+        "email": "skinner@undefined.me",
+        "name": "Skinner",
+        "date": "Wed Oct 23 2002 04:56:39 GMT+0000 (UTC)",
+        "rate": 5,
+        "id": 1
+      }
+    ],
+    "open_hours": "undefined",
+    "address": "875 Nautilus Avenue, Innsbrook, District Of Columbia, 8184",
+    "about": "Qui sunt ex id cillum ut dolore enim tempor enim id duis adipisicing esse. Nisi aliqua nisi non consectetur proident nostrud cillum. Non adipisicing ex irure deserunt officia. Proident aute mollit qui commodo aute duis do consequat qui minim ipsum. Culpa officia do cillum deserunt mollit nostrud id nulla Lorem irure do veniam nostrud reprehenderit.",
+    "company": "Zytrex",
+    "_id": "5714e64890f562626298b8de"
+  },
+  {
+    "reviews": [
+      3,
+      {
+        "email": "skinner@undefined.me",
+        "name": "Skinner",
+        "date": "Wed Oct 23 2002 04:56:39 GMT+0000 (UTC)",
+        "rate": 5,
+        "id": 1
+      }
+    ],
+    "open_hours": "undefined",
+    "address": "507 Coleridge Street, Lafferty, Kentucky, 9153",
+    "about": "Labore officia esse voluptate tempor. Est enim ex fugiat fugiat. Deserunt qui officia ex et sit non proident id nulla fugiat deserunt nostrud aliquip. Tempor ullamco sit adipisicing dolor est do amet consectetur Lorem non est. Est sint sint amet dolore exercitation officia Lorem tempor mollit aliqua commodo officia deserunt.",
+    "company": "Remold",
+    "_id": "5714e64878fd78aed029da5c"
+  },
+  {
+    "reviews": [
+      3,
+      {
+        "email": "skinner@undefined.me",
+        "name": "Skinner",
+        "date": "Wed Oct 23 2002 04:56:39 GMT+0000 (UTC)",
+        "rate": 5,
+        "id": 1
+      }
+    ],
+    "open_hours": "undefined",
+    "address": "966 Losee Terrace, Sugartown, Iowa, 1273",
+    "about": "Occaecat ex est dolor minim veniam veniam occaecat eiusmod dolor voluptate duis do sint amet. In velit minim ad minim consequat dolore tempor velit cillum enim in esse amet. Consectetur ad culpa anim ex anim commodo reprehenderit mollit duis exercitation id sunt sunt ad. Esse in esse commodo non aliqua excepteur reprehenderit exercitation aliqua nulla irure. Cupidatat nisi sit consectetur pariatur ut incididunt.",
+    "company": "Fibrodyne",
+    "_id": "5714e648323bce3ded3b62ca"
+  },
+  {
+    "reviews": [
+      3,
+      {
+        "email": "skinner@undefined.me",
+        "name": "Skinner",
+        "date": "Wed Oct 23 2002 04:56:39 GMT+0000 (UTC)",
+        "rate": 5,
+        "id": 1
+      }
+    ],
+    "open_hours": "undefined",
+    "address": "553 Jackson Place, Escondida, Oklahoma, 8268",
+    "about": "Ut quis qui in elit nisi. Non occaecat do deserunt aute Lorem ullamco anim sunt adipisicing veniam nostrud officia. Excepteur aliqua commodo tempor ullamco id. Pariatur tempor quis sit laborum aute Lorem officia irure. Cillum consequat anim quis dolore dolore culpa nisi duis irure laborum ullamco ipsum adipisicing.",
+    "company": "Bicol",
+    "_id": "5714e648bc399ac92e80ad7d"
+  },
+  {
+    "reviews": [
+      3,
+      {
+        "email": "skinner@undefined.me",
+        "name": "Skinner",
+        "date": "Wed Oct 23 2002 04:56:39 GMT+0000 (UTC)",
+        "rate": 5,
+        "id": 1
+      }
+    ],
+    "open_hours": "undefined",
+    "address": "465 Girard Street, Clayville, North Carolina, 6232",
+    "about": "Ex incididunt ut irure fugiat esse ad ut commodo. Ipsum eiusmod ex ipsum esse eu cupidatat aute exercitation adipisicing aliqua et esse labore. Magna adipisicing ea id ullamco consequat nulla non pariatur. Non velit proident commodo ex enim nulla. Quis irure excepteur reprehenderit anim.",
+    "company": "Shadease",
+    "_id": "5714e648527e06190b9d6ddf"
+  }
+]
