@@ -1,32 +1,15 @@
 <div class="row" ng-controller="homeCtrl">
-    <div ng-repeat="item in data track by $index">
-        {{item.title}}
-    </div>
-    <div class="col s12 m6">
+    <div class="col s12 m6" ng-repeat="item in data">
         <div class="card">
             <div class="card-image">
                 <img src="img/sample-1.jpg">
-                <span class="card-title">Restaurant Name</span>
+                <span class="card-title">{{ item.title }}</span>
             </div>
             <div class="card-content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                <p>{{ item.about }} </p>
             </div>
             <div class="card-action">
-                <a href="#">View</a>
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m6">
-        <div class="card">
-            <div class="card-image">
-                <img src="img/sample-1.jpg">
-                <span class="card-title">Restaurant Name</span>
-            </div>
-            <div class="card-content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            </div>
-            <div class="card-action">
-                <a href="#">View</a>
+                <a href="#/detail/{{ item._id }}">View</a>
             </div>
         </div>
     </div>

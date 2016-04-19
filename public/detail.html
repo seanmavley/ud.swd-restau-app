@@ -4,22 +4,25 @@
             <div class="card">
                 <div class="card-image">
                     <img src="img/sample-1.jpg">
-                    <span class="card-title">Restaurant Name</span>
+                    <span class="card-title">{{ detail.title }}</span>
                 </div>
             </div>
         </div>
         <div class="col s12 m6">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>{{ detail.about }}</p>
+            <p>{{ detail.open_hours }}</p>
         </div>
     </div>
     <div class="row">
         <div class="col s12">
-            <div class="card-panel">
-                <span class="card-title">Name of reviewer <small>date reviewed</small></span>
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-                </p>
+            <div class="card-panel" ng-repeat="item in detail.reviews">
+                <span class="card-title">{{ item.name }} <small>{{ item.createdAt }}</small></span>
+                <p> {{ item.message }}</p>
+                <p> {{ item.email }}</p>
                 <h6>Rate</h6>
-                <i class="large material-icons">insert_chart</i>
+                <div class="progress" style="width:45px;">
+                    <div class="determinate" style="width: {{ item.rate * 100 }}"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -28,32 +31,35 @@
             <h1 class="flow-text">Add your review</h1>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="full_name" type="text" class="validate">
+                    <select class="browser-default" ng-model="formData.rate">
+                        <option value="" disabled selected>Choose Rating</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                    <!-- <label>Materialize Select</label> -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="full_name" type="text" ng-model="formData.name" class="validate">
                     <label for="full_name">Full name</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
+                    <input id="email" type="email" ng-model="formData.email" class="validate">
                     <label for="email">Email</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea" length="120"></textarea>
+                    <textarea id="textarea1" class="materialize-textarea" ng-model="formData.message" length="120"></textarea>
                     <label for="textarea1">Review</label>
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s3">
-                    <p class="flow-text">Rate</p>
-                    <p class="range-field">
-                        <input type="range" id="rate" min="0" max="5" />
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <button type="submit" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+                <button type="submit" ng-click="createReview()" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></button>
             </div>
         </form>
     </div>

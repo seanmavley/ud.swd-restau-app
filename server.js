@@ -1,6 +1,7 @@
 var express = require('express'),
     mongojs = require('mongojs'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    morgan = require('morgan');
 
 var app = express();
 
@@ -23,13 +24,10 @@ restaRouter = require('./app/routes')();
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
+app.use(morgan('dev')); // log every request to the console
 
 // Let's catch some routes
 app.use('/api', restaRouter);
-
-app.get('*', function(req, res) {
-    res.sendFile(__dirname + '/public/index.html');
-});
 
 app.listen(port)
 console.log('I am working on port ' + port);
