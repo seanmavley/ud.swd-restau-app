@@ -21,7 +21,7 @@ app.controller('detailCtrl', ['$scope', '$routeParams', 'restas', function($scop
             if (!$scope.formData.email) { // email is compulsory
                 Materialize.toast('Come oo-oo--ooonn, add your email', 5000);
                 return;
-            }
+            } 
             // add datestamp on the fly
             $scope.formData.createdAt = new Date(); 
 

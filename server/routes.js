@@ -29,9 +29,13 @@ var routes = function() {
 
     restaRouter.route('/lists/:id')
 
-        .post(function(req, res) {
+    .post(function(req, res) {
             console.log(req.body);
-            db.Restaurant.update({ _id: mongojs.ObjectId(req.params.id) }, { $push: { reviews: req.body } }, function(err, doc) {
+            db.Restaurant.update({
+                _id: mongojs.ObjectId(req.params.id)
+            }, {
+                $push: { reviews: req.body }
+            }, function(err, doc) {
                 if (err) {
                     res.send(err);
                 }
@@ -39,7 +43,9 @@ var routes = function() {
             })
         })
         .get(function(req, res) {
-            db.Restaurant.findOne({ _id: mongojs.ObjectId(req.params.id) }, function(err, doc) {
+            db.Restaurant.findOne({
+                _id: mongojs.ObjectId(req.params.id)
+            }, function(err, doc) {
                 if (err) {
                     res.send(err);
                 }

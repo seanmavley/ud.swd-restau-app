@@ -5,7 +5,7 @@ var express = require('express'),
 
 var app = express();
 
-// Let's connect to MongoDB
+// let's connect to MongoDB
 var db = mongojs('mongodb://localhost/resta', ['Restaurant']);
 db.on('error', function(err) {
         console.log('database error ', err);
@@ -14,19 +14,17 @@ db.on('error', function(err) {
         console.log('database connected');
     })
 
-
+// uses 8000 if gulp started the server
 var port = process.env.PORT || 3005;
 
-// Routes
-restaRouter = require('./app/routes')();
-
-// Let's use some things
+// let's use some things
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(morgan('dev')); // log every request to the console
 
-// Let's catch some routes
+// routes
+restaRouter = require('./server/routes')();
 app.use('/api', restaRouter);
 
 app.listen(port)

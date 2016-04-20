@@ -1,33 +1,40 @@
-var gulp = require('gulp'),
+var gulp = require('gulp');
+    concat = require('gulp-concat');
+    uglify = require('gulp-uglify');
+    rename = require('gulp-rename');
     nodemon = require('gulp-nodemon'),
-    browser = require('browser-sync'),
-    mongodbData = require('gulp-mongodb-data');
+    browser = require('browser-sync').create();
 
-// loading fixtures. 50 documents
-gulp.task('initialize', function() {
-    gulp.src('./import.json')
-        .pipe(mongodbData({
-            mongoUrl: 'mongodb://localhost/resta',
-            collectionName: 'Restaurant',
-            dropCollectoin: true
-        }))
+var toBuild = [
+    './client/js/init.js',
+    './client/js/app.js'
+];
+
+var publicDir = 'public/build';
+
+// Concatenate and minify all JS files
+gulp.task('scripts', function () {
+  return gulp.src(toBuild)
+    .pipe(concat('resta.js'))
+    .pipe(gulp.dest(publicDir))
+    .pipe(rename('resta.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(publicDir));
 });
 
-gulp.task('forStatic', function() {
-    gulp.watch('*.html').on('change', browser.reload);
+gulp.task('watchScripts', function() {
+    gulp.watch(toBuild, ['scripts']);
 });
 
-gulp.task('default', function() {
-    nodemon({
-        script: 'server.js',
-        ext: 'js',
-        env: {
-            PORT:8000
-        },
-        ignore: ['./node_modules']
-        // tasks: ['forStatic']
-    }).
-    on('restart', function() {
-        console.log('Restarting');
+// start server
+gulp.task('serve', ['watchScripts'], function () {
+  nodemon({
+    script: 'server.js',
+    env: {
+      'PORT': 8000
+    }
+  })
+    .on('restart', function () {
+      console.log('restarted!');
     });
-})
+});
