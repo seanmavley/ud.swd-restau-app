@@ -4,24 +4,24 @@
             <div class="card">
                 <div class="card-image">
                     <img src="img/sample-1.jpg">
-                    <span class="card-title">{{ detail.title }}</span>
+                    <span class="card-title">{{ detail.name }}</span>
                 </div>
             </div>
         </div>
         <div class="col s12 m6">
             <p>{{ detail.about }}</p>
-            <p>{{ detail.open_hours }}</p>
+            <p>Open on {{ detail.open.days }} during {{ detail.open.hours }}</p>
         </div>
     </div>
     <div class="row">
         <div class="col s12">
-            <div class="card-panel" ng-repeat="item in detail.reviews">
-                <span class="card-title">{{ item.name }} <small>{{ item.createdAt }}</small></span>
-                <p> {{ item.message }}</p>
-                <p> {{ item.email }}</p>
+            <div class="card-panel" ng-repeat="review in detail.reviews">
+                <span class="card-title">{{ review.name }} <small>{{ review.createdAt }}</small></span>
+                <p> {{ review.message }}</p>
+                <p> {{ review.email }}</p>
                 <h6>Rate</h6>
                 <div class="progress" style="width:45px;">
-                    <div class="determinate" style="width: {{ item.rate * 100 }}"></div>
+                    <div class="determinate" style="width: {{ review.rate * 100 }}"></div>
                 </div>
             </div>
         </div>
@@ -33,11 +33,12 @@
                 <div class="input-field col s12">
                     <select class="browser-default" ng-model="formData.rate">
                         <option value="" disabled selected>Choose Rating</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        <option value="1">Dislike</option>
+                        <option value="2">Meh</option>
+                        <option value="3">Okay</option>
+                        <option value="4">Great</option>
+                        <option value="5">Excellent</option>
                     </select>
-                    <!-- <label>Materialize Select</label> -->
                 </div>
             </div>
             <div class="row">
