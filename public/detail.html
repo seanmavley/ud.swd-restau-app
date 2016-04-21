@@ -3,33 +3,35 @@
         <div class="col s12 m6">
             <div class="card">
                 <div class="card-image">
-                    <img src="img/sample-1.jpg">
-                    <span class="card-title">{{ detail.name }}</span>
+                    <img ng-src="{{detail.photo}}">
                 </div>
             </div>
         </div>
         <div class="col s12 m6">
-            <p class="flow-text">{{ detail.name }}</p>
+            <h3>{{ detail.name }}</h3>
             <p>{{ detail.about }}</p>
+            <p>{{ detail.address.street }}, {{ detail.address.city }}, {{ detail.address.state }}, {{ detail.address.zip_code }}</p>
+            <p>{{ detail.phone }}</p>
             <p>Open on: <br/><strong>{{ detail.open.days }}</strong> during <strong>{{ detail.open.hours }}</strong></p>
         </div>
     </div>
     <div class="row">
-        <div class="col s12">
+        <div class="col s12 m10">
+            <div class="flow-text">User Reviews</div>
             <div class="card-panel" ng-repeat="review in detail.reviews">
-                <span class="card-title">{{ review.name }} <small>{{ review.createdAt }}</small></span>
+                <span class="card-title">{{ review.name }} <small>{{ review.createdAt | date : longDate }}</small></span>
                 <p> {{ review.message }}</p>
-                <p> {{ review.email }}</p>
-                <h6>Rate</h6>
+                <h6 class="flow-text">Rate</h6>
                 <div class="progress" style="width:45px;">
-                    <div class="determinate" style="width: {{ review.rate * 100 }}"></div>
+                    <div class="determinate" style="width: {{ review.rate * 10 }}%"></div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <form class="col s12">
+        <form class="col s12 m10">
             <h1 class="flow-text">Add your review</h1>
+            <div class="divider"></div>
             <div class="row">
                 <div class="input-field col s12">
                     <select class="browser-default" ng-model="formData.rate">

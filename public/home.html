@@ -1,14 +1,25 @@
 <div class="row" ng-controller="homeCtrl">
-    <div ng-hide="data">No list</div>
-    <div class="col s12 m4" ng-repeat="item in data | limitTo: 20">
+    <div class="col s12">
+        <div class="input-field col s6">
+            <input list='arrival' class="validate" type='text' ng-model="query" placeholder="Filter eg Colorado or by name eg Amtap" />
+            <datalist id="arrival">
+                <select name="arrival">
+                    <option></option>
+                    <option value="New jersey">Jersey</option>
+                    <option value="Colorado">Colorado</option>
+                </select>
+            </datalist>
+        </div>
+    </div>
+    <div class="col s12 m4" ng-repeat="item in data | limitTo: 30 | filter:query | orderBy: name">
         <div class="card">
             <div class="card-image">
-                <img src="img/sample-1.jpg">
+                <img ng-src="img/sample-1.jpg">
                 <span class="card-title">{{ item.name }}</span>
             </div>
             <div class="card-action">
                 <a href="#/detail/{{ item._id }}">View</a>
             </div>
-        </div> 
+        </div>
     </div>
 </div>

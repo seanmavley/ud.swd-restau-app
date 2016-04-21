@@ -19,7 +19,6 @@ $(document).ready(function() {
 var app = angular.module('restaApp', ['ngRoute']);
 
 app.controller('homeCtrl', ['$scope', 'restas', function($scope, restas) {
-    $scope.checking = 'I am working';
     restas.get()
         .success(function(data) {
             $scope.data = data;
@@ -27,30 +26,35 @@ app.controller('homeCtrl', ['$scope', 'restas', function($scope, restas) {
 }]);
 
 app.controller('detailCtrl', ['$scope', '$routeParams', 'restas', function($scope, $routeParams, restas) {
-    restas.getOne($routeParams.id)
-        .success(function(data) {
-            $scope.detail = data;
-        })
+    var refresh = function() {
+        restas.getOne($routeParams.id)
+            .success(function(data) {
+                $scope.detail = data;
+            });
+    };
+
+    // refresh now
+    refresh();
 
     $scope.createReview = function() {
-        // Evil guy, I'm looking at you...
+        // Just in case
         // Let's second-validate
-        if ($scope.formData != undefined) {
+        if ($scope.formData != undefined) { // if no formData object
             if (!$scope.formData.email) { // email is compulsory
                 Materialize.toast('Come oo-oo--ooonn, add your email', 5000);
                 return;
-            } 
+            }
             // add datestamp on the fly
-            $scope.formData.createdAt = new Date(); 
+            $scope.formData.createdAt = new Date();
 
-            // what am I getting from form?
             // console.log(angular.toJson($scope.formData));
 
             // create review
             restas.createReview(angular.toJson($scope.formData), $routeParams.id)
                 .success(function(data) {
                     $scope.formData = {}; // clear the form
-                    Materialize.toast('Success', 5000);
+                    Materialize.toast('Success', 5000); // success message
+                    refresh(); // reload added review
                 });
         } else {
             Materialize.toast('Something is wrong! You know what, complete the damn review!', 5000);

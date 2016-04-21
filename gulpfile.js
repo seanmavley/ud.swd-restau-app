@@ -3,12 +3,22 @@ var gulp = require('gulp');
     uglify = require('gulp-uglify');
     rename = require('gulp-rename');
     nodemon = require('gulp-nodemon'),
+    mongodbData = require('gulp-mongodb-data'),
     browser = require('browser-sync').create();
 
 var toBuild = [
     './client/js/init.js',
     './client/js/app.js'
 ];
+
+gulp.task('initialize', function() {
+  gulp.src('./public/import.json')
+    .pipe(mongodbData({
+      mongoUrl: 'mongodb://localhost/resta',
+      collectionName: 'Restaurant',
+      dropCollection: true
+    }));
+});
 
 var publicDir = 'public/build';
 
@@ -22,19 +32,23 @@ gulp.task('scripts', function () {
     .pipe(gulp.dest(publicDir));
 });
 
-gulp.task('watchScripts', function() {
+gulp.task('buildScripts', function() {
     gulp.watch(toBuild, ['scripts']);
 });
 
-// start server
-gulp.task('serve', ['watchScripts'], function () {
+gulp.task('serve', ['buildScripts'], function () {
   nodemon({
     script: 'server.js',
     env: {
       'PORT': 8000
-    }
+    },
+    ext: 'js html',
+    watch: ['public']
   })
     .on('restart', function () {
       console.log('restarted!');
     });
 });
+
+// crank up the gears!
+gulp.task('default', ['serve', 'buildScripts']);

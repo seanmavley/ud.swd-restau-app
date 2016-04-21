@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html ng-app="restaApp">
-<head> 
+
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Restaurant</title>
+    <title>Restaurant App</title>
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="lib/Materialize/dist/css/materialize.min.css">
     <!-- javascript -->
@@ -13,7 +14,7 @@
     <script type="text/javascript" src="lib/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="lib/Materialize/dist/js/materialize.min.js"></script>
     <script type="text/javascript" src="build/resta.js"></script>
-
+    <!-- icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- <base href="/"> -->
 </head>
@@ -21,10 +22,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <a class='dropdown-button btn blue lighten-1' href='#' data-activates='dropdown1'> Menu </a>
-            <ul id='dropdown1' class='dropdown-content' style="z-index: 200;">
-                <li><a href="#/">Home</a></li>
-            </ul>
+            <a class='dropdown-button btn blue lighten-1' href="#/"> Home </a>
             <div class="divider blue dark-1" style="margin-bottom:15px;"></div>
         </div>
         <div ng-view></div>
