@@ -1,10 +1,7 @@
-var express = require('express'),
-    mongojs = require('mongojs');
-
+var express = require('express');
 var app = express();
-var db = mongojs('mongodb://localhost/resta', ['Restaurant']);
 
-var routes = function() {
+var routes = function(mongojs, db) {
     var restaRouter = express.Router();
 
     restaRouter.route('/lists')

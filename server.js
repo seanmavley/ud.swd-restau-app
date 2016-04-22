@@ -24,7 +24,7 @@ app.use(bodyParser.json())
 app.use(morgan('dev')); // log every request to the console
 
 // routes
-restaRouter = require('./server/routes')();
+restaRouter = require('./server/routes')(mongojs, db);
 app.use('/api', restaRouter);
 
 app.listen(port)

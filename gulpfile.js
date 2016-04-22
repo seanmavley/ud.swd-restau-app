@@ -6,11 +6,13 @@ var gulp = require('gulp');
     mongodbData = require('gulp-mongodb-data'),
     browser = require('browser-sync').create();
 
+// build these files
 var toBuild = [
     './client/js/init.js',
     './client/js/app.js'
 ];
 
+// load fixtures
 gulp.task('initialize', function() {
   gulp.src('./public/import.json')
     .pipe(mongodbData({
@@ -20,6 +22,7 @@ gulp.task('initialize', function() {
     }));
 });
 
+// build to
 var publicDir = 'public/build';
 
 // Concatenate and minify all JS files
@@ -32,10 +35,12 @@ gulp.task('scripts', function () {
     .pipe(gulp.dest(publicDir));
 });
 
+// watch and repeat if changes to files
 gulp.task('buildScripts', function() {
     gulp.watch(toBuild, ['scripts']);
 });
 
+// run server
 gulp.task('serve', ['buildScripts'], function () {
   nodemon({
     script: 'server.js',
@@ -50,5 +55,5 @@ gulp.task('serve', ['buildScripts'], function () {
     });
 });
 
-// crank up the gears!
+// combine all
 gulp.task('default', ['serve', 'buildScripts']);

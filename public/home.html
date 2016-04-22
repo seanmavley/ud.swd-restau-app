@@ -11,15 +11,27 @@
             </datalist>
         </div>
     </div>
-    <div class="col s12 m4" ng-repeat="item in data | limitTo: 30 | filter:query | orderBy: name">
-        <div class="card">
+    <div class="col s12 m4" ng-repeat="item in data | limitTo: limit | filter:query | orderBy: name">
+        <div class="card hoverable">
             <div class="card-image">
-                <img ng-src="img/sample-1.jpg">
-                <span class="card-title">{{ item.name }}</span>
+                <img ng-src="{{ item.photo }}/{{$index}}" alt="{{ item.name }} photo">
+                <span class="card-title"><a href="#/detail/{{ item._id }}">{{ item.name }}</a></span>
             </div>
             <div class="card-action">
-                <a href="#/detail/{{ item._id }}">View</a>
+                <a href="#/detail/{{ item._id }}" class="teal-text">View</a>
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col s12">
+            
+        <center>
+    <a ng-click="showMore()" class="btn-floating btn-large waves-effect waves-light">
+        <i class="material-icons">expand_more</i>
+    </a>
+</center>
+
+        </div>
+    </div>
+
 </div>
