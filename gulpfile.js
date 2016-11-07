@@ -14,7 +14,7 @@ var toBuild = [
 
 // load fixtures
 gulp.task('initialize', function() {
-  gulp.src('./public/import.json')
+  gulp.src('./public/data/import.json')
     .pipe(mongodbData({
       mongoUrl: 'mongodb://localhost/resta',
       collectionName: 'Restaurant',
@@ -41,6 +41,8 @@ gulp.task('buildScripts', function() {
 });
 
 // run server
+// But doesn't work. Beats my mind why
+// For now, just use nodemon server.js
 gulp.task('serve', ['buildScripts'], function () {
   nodemon({
     script: 'server.js',

@@ -1,3 +1,4 @@
+// initializers for Materialize CSS
 $(document).ready(function() {
     $('select').material_select();
 

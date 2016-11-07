@@ -14,7 +14,7 @@ db.on('error', function(err) {
         console.log('database connected');
     })
 
-// uses 8000 if gulp started the server
+// uses port 8000 if gulp started the server
 var port = process.env.PORT || 3005;
 
 // let's use some things
@@ -28,4 +28,4 @@ restaRouter = require('./server/routes')(mongojs, db);
 app.use('/api', restaRouter);
 
 app.listen(port)
-console.log('I am working on port ' + port);
+console.log('I am working on http://localhost:' + port);

@@ -3,7 +3,7 @@
         <div class="col s12 m6">
             <div class="card">
                 <div class="card-image">
-                    <img ng-src="{{detail.photo}}" alt="{{ detail.name }} photo">
+                    <img src="img/sample-1.jpg" alt="{{ detail.name }} photo">
                 </div>
             </div>
         </div>
@@ -12,7 +12,8 @@
             <p>{{ detail.about }}</p>
             <p>{{ detail.address.street }}, {{ detail.address.city }}, {{ detail.address.state }}, {{ detail.address.zip_code }}</p>
             <p>{{ detail.phone }}</p>
-            <p>Open on: <br/><strong>{{ detail.open.days }}</strong> during <strong>{{ detail.open.hours }}</strong></p>
+            <p>Open on:
+                <br/><strong>{{ detail.open.days }}</strong> during <strong>{{ detail.open.hours }}</strong></p>
         </div>
     </div>
     <div class="row">
