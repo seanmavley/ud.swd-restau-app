@@ -8,7 +8,6 @@ To run the app, follow the steps below:
 - cd to `thisRepo` and `npm install && bower install` to get all dependencies ready
 - `gulp initialize` to load initial data from json file
   -- At this point, be sure to have MongoDB instance running on your local machine. Learn how to [install and run MongoDB](https://mongodb.com)
-- Run `gulp scripts` to build scripts one-time
-- <strike>`gulp` to start server</strike> In the project directory, run `nodemon server.js`
+- `gulp` to build scripts and start server
 - go to `localhost:8005` in browser to see the app.
 - Follow on-screen navigation to use app.
