@@ -41,13 +41,11 @@ gulp.task('buildScripts', function() {
 });
 
 // run server
-// But doesn't work. Beats my mind why
-// For now, just use nodemon server.js
 gulp.task('serve', ['buildScripts'], function () {
   nodemon({
     script: 'server.js',
     env: {
-      'PORT': 8000
+      'PORT': 8005
     },
     ext: 'js html',
     watch: ['public']
