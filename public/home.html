@@ -12,7 +12,7 @@
     <div class="loading" ng-show="!data.length">
         <h2>Loading</h2>
     </div>
-    <article class="col s12 m4" ng-repeat="item in data | limitTo: limit | filter:query | orderBy: name">
+    <article class="col s12 m4" ng-repeat="item in data | filter:query | orderBy: name">
         <a href="#/detail/{{ item._id }}">
             <div class="card hoverable">
                 <div class="card-image">
@@ -24,13 +24,4 @@
             </div>
         </a>
     </article>
-    <div class="row">
-        <div class="col s12">
-            <center>
-                <a ng-click="showMore()" class="btn-floating btn-large black white-text waves-effect waves-light" tabindex="0">
-                    <i class="material-icons">expand_more</i>
-                </a>
-            </center>
-        </div>
-    </div>
 </div>

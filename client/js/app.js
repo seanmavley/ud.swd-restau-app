@@ -18,13 +18,6 @@ angular.module('restaApp', ['ngRoute'])
       // $locationProvider.html5Mode(true);
   }])
   .controller('homeCtrl', ['$scope', 'restas', function($scope, restas) {
-    // anyway to persist limitStep
-    // across routes?
-    var limitStep = 10;
-    $scope.limit = limitStep;
-    $scope.showMore = function() {
-      $scope.limit += limitStep;
-    };
 
     restas.get()
       .success(function(data) {
